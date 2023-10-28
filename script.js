@@ -49,7 +49,8 @@ function getPasswordOptions() {
     length: length,
     useSpecial: useSpecial,
     useUpperCase: useUpperCase,
-    useNumericCase: useNumericCase
+    useNumericCase: useNumericCase,
+    useLowerCase: useLowerCase
   };
 
   return passwordOptions;
@@ -64,10 +65,30 @@ function getRandom(arr) {
   return arr[randomElement];
 }
 
-console.log(getRandom(upperCasedCharacters))
+// console.log(getRandom(upperCasedCharacters))
+
 
 // Function to generate password with user input
+
 function generatePassword() {
+
+  var options = getPasswordOptions();
+
+  // User entered invalid options, but is it possible if almost every character is covered?
+  if (!options) {
+    return;
+  }
+
+  var availableCharacters = [];
+  var selectedCharacters = [];
+
+  if (options.useSpecial) {
+    availableCharacters = availableCharacters.concat(specialCharacters);
+    selectedCharacters.push(getRandom(specialCharacters));
+  }
+  return selectedCharacters;
+
+
 
 }
 
@@ -82,5 +103,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// Add event listener to generate buttons
 generateBtn.addEventListener('click', writePassword);
