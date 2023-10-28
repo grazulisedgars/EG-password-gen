@@ -19,6 +19,8 @@ function getPasswordOptions() {
 
   var length = parseInt(prompt("Please choose a number between 8 and 128: "));
   // Check if length is a valid number
+  // Should I include this in a loop so the whole alert/confirm pop-up works properly?
+
   if (isNaN(length)) {
     alert("Please enter a valid number.");
     return;
@@ -29,18 +31,21 @@ function getPasswordOptions() {
     alert("Please enter a number between 8 and 128.");
     return;
   }
+}
+getPasswordOptions()
+// Ask user to choose character types 
+var useSpecial = confirm("Shall we include special characters? ");
+var useLowerCase = confirm("Shall we include lowercase characters?");
+var useUpperCase = confirm("Shall we use uppercase characters?");
+var useNumericCase = confirm("Shall we use numeric characters?");
 
-
+// if they don't choose any they should get an error
+if (!useSpecial && !useNumericCase && !useLowerCase && !useUpperCase) {
+  alert("Please select at least one character type.");
 }
 
-getPasswordOptions()
-
-// Enter length of a password (8-128 characters)
-// if length < 8 && length > 128 
-//alert("enter a number between 8 and 128")
-// else length > 8 && length < 128 can proceed to the next step 
-
 // Then should be able to choose character types: lowercase, uppercase, numeric and special
+// Should at least select one option out of four
 
 
 
