@@ -86,10 +86,12 @@ function generatePassword() {
     availableCharacters = availableCharacters.concat(specialCharacters);
     selectedCharacters.push(getRandom(specialCharacters));
   }
-  return selectedCharacters;
 
-
-
+  // Generate the rest of the password characters
+  for (var i = selectedCharacters.length; i < options.length; i++) {
+    selectedCharacters.push(getRandom(availableCharacters));
+  }
+return selectedCharacters;
 }
 
 // Get references to the #generate element
