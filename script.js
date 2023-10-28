@@ -92,12 +92,21 @@ function generatePassword() {
     availableCharacters = availableCharacters.concat(numericCharacters);
     selectedCharacters.push(getRandom(numericCharacters));
   }
+  //adding the rest of available options
+  if (options.useLowerCase) {
+    availableCharacters = availableCharacters.concat(lowerCasedCharacters);
+    selectedCharacters.push(getRandom(lowerCasedCharacters));
+  }
+  if (options.useUpperCase) {
+    availableCharacters = availableCharacters.concat(upperCasedCharacters);
+    selectedCharacters.push(getRandom(upperCasedCharacters));
+  }
 
   // Generate the rest of the password characters
   for (var i = selectedCharacters.length; i < options.length; i++) {
     selectedCharacters.push(getRandom(availableCharacters));
   }
-  
+
   return selectedCharacters;
 
 }
