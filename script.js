@@ -107,10 +107,11 @@ function generatePassword() {
     selectedCharacters.push(getRandom(availableCharacters));
   }
 
-  return selectedCharacters;
+  return selectedCharacters.join(''); // before using this method password was returned with commas. Took me a while to find this
 
 }
 
+// Did not touch this part below...
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
