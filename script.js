@@ -31,21 +31,32 @@ function getPasswordOptions() {
     alert("Please enter a number between 8 and 128.");
     return;
   }
+
+  // Ask user to choose character types 
+  var useSpecial = confirm("Shall we include special characters? ");
+  var useLowerCase = confirm("Shall we include lowercase characters?");
+  var useUpperCase = confirm("Shall we use uppercase characters?");
+  var useNumericCase = confirm("Shall we use numeric characters?");
+
+  // if they don't choose any they should get an error
+  if (!useSpecial && !useNumericCase && !useLowerCase && !useUpperCase) {
+    alert("Please select at least one character type.");
+  }
+
+  // We need to store users choices somewhere
+
+  var passwordOptions = {
+    length: length,
+    useSpecial: useSpecial,
+    useUpperCase: useUpperCase,
+    useNumericCase: useNumericCase
+  };
+
+  return passwordOptions;
 }
+
 getPasswordOptions()
-// Ask user to choose character types 
-var useSpecial = confirm("Shall we include special characters? ");
-var useLowerCase = confirm("Shall we include lowercase characters?");
-var useUpperCase = confirm("Shall we use uppercase characters?");
-var useNumericCase = confirm("Shall we use numeric characters?");
 
-// if they don't choose any they should get an error
-if (!useSpecial && !useNumericCase && !useLowerCase && !useUpperCase) {
-  alert("Please select at least one character type.");
-}
-
-// Then should be able to choose character types: lowercase, uppercase, numeric and special
-// Should at least select one option out of four
 
 
 
