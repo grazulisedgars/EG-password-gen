@@ -55,17 +55,16 @@ function getPasswordOptions() {
   return passwordOptions;
 }
 
-getPasswordOptions()
-
-
-
-
-
+//getPasswordOptions() 
+// helps me to see if the function above works 
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var randomElement = Math.floor(Math.random() * arr.length);
+  return arr[randomElement];
 }
+
+console.log(getRandom(upperCasedCharacters))
 
 // Function to generate password with user input
 function generatePassword() {
