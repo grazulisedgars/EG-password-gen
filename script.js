@@ -15,6 +15,25 @@ var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K
 //------------------------------------------------------------------------------
 
 // Function to prompt user for password options
+function getPasswordOptions() {
+
+  var length = parseInt(prompt("Please choose a number between 8 and 128: "));
+  // Check if length is a valid number
+  if (isNaN(length)) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
+  // Check if length is within the specified range
+  if (length < 8 || length > 128) {
+    alert("Please enter a number between 8 and 128.");
+    return;
+  }
+
+
+}
+
+getPasswordOptions()
 
 // Enter length of a password (8-128 characters)
 // if length < 8 && length > 128 
@@ -23,7 +42,7 @@ var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K
 
 // Then should be able to choose character types: lowercase, uppercase, numeric and special
 
-var userInput = prompt("Please choose a number between 8 and 128: ");
+
 
 
 
