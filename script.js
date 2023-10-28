@@ -82,16 +82,24 @@ function generatePassword() {
   var availableCharacters = [];
   var selectedCharacters = [];
 
+  // uses special characters to create the password with
   if (options.useSpecial) {
     availableCharacters = availableCharacters.concat(specialCharacters);
     selectedCharacters.push(getRandom(specialCharacters));
+  }
+  //adding numeric case, should work 
+  if (options.useNumericCase) {
+    availableCharacters = availableCharacters.concat(numericCharacters);
+    selectedCharacters.push(getRandom(numericCharacters));
   }
 
   // Generate the rest of the password characters
   for (var i = selectedCharacters.length; i < options.length; i++) {
     selectedCharacters.push(getRandom(availableCharacters));
   }
-return selectedCharacters;
+  
+  return selectedCharacters;
+
 }
 
 // Get references to the #generate element
